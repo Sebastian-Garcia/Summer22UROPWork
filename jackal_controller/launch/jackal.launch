@@ -1,0 +1,16 @@
+<launch>
+  <!--Launches the service connecting optitrack to ros, starts rviz with correct configuration, and launches controller-->
+  
+  <arg name="optitrack_server" default="128.30.9.225"/>
+  
+  <include file="$(find vrpn_client_ros)/launch/sample.launch">
+    <arg name="server" value="$(arg optitrack_server)" />
+  </include>
+
+  
+  <node type="rviz" name="rviz" pkg="rviz" args="-d $(find jackal_controller)/rviz/optitrack.rviz" />
+  <node name="ConstantPub" pkg="jackal_controller" type="constantgoalpub.py" output="screen"/>
+  <node name="Transformer" pkg="jackal_controller" type="transformer.py" output="screen"/>
+  <node name="Laser_Transformer" pkg="jackal_controller" type="laser_transformer.py" output="screen"/>
+  <node name="Controller" pkg="jackal_controller" type="controller.py" output="screen"/>
+</launch>

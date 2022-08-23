@@ -1,0 +1,4 @@
+<launch>
+    <!--Launches node that takes in odometry data and april tag data-->
+    <node pkg="slamtest" name="FactorGraph" type="rosFactorGraph" output="screen"/>
+</launch>
