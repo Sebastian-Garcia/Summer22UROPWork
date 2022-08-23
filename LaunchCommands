@@ -1,0 +1,22 @@
+
+Camera: 
+
+roslaunch realsense2_camera rs_camera.launch unite_imu_method:="linear_interpolation"
+
+Tagslam:
+
+roslaunch tagslam tagslam.launch run_online:=true
+
+Tagslam Apriltag Detector:
+
+roslaunch tagslam apriltag_detector_node.launch 
+
+OpenVINS:
+
+roslaunch ov_msckf subscribe.launch config:=MITTest
+
+
+Synchronizer:
+
+python3 time_sync.py (source first)
+

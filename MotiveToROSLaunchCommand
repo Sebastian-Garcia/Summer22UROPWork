@@ -1,0 +1,4 @@
+Command for passing data from Optitrack (Motive) to ROS on Ubuntu Computer
+
+
+roslaunch vrpn_client_ros sample.launch server:=128.30.9.225
